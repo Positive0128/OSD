@@ -1,0 +1,12 @@
+../Core/Src/stm32g0xx_hal_msp.c:67:6:HAL_MspInit	1
+../Core/Src/stm32g0xx_hal_msp.c:98:6:HAL_COMP_MspInit	3
+../Core/Src/stm32g0xx_hal_msp.c:170:6:HAL_COMP_MspDeInit	3
+../Core/Src/stm32g0xx_hal_msp.c:231:6:HAL_DAC_MspInit	2
+../Core/Src/stm32g0xx_hal_msp.c:254:6:HAL_DAC_MspDeInit	2
+../Core/Src/stm32g0xx_hal_msp.c:276:6:HAL_LPTIM_MspInit	3
+../Core/Src/stm32g0xx_hal_msp.c:310:6:HAL_LPTIM_MspDeInit	2
+../Core/Src/stm32g0xx_hal_msp.c:332:6:HAL_SPI_MspInit	3
+../Core/Src/stm32g0xx_hal_msp.c:396:6:HAL_SPI_MspDeInit	2
+../Core/Src/stm32g0xx_hal_msp.c:429:6:HAL_TIM_Base_MspInit	9
+../Core/Src/stm32g0xx_hal_msp.c:535:6:HAL_TIM_MspPostInit	2
+../Core/Src/stm32g0xx_hal_msp.c:567:6:HAL_TIM_Base_MspDeInit	7
