@@ -85,48 +85,6 @@ static void MX_TIM16_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-/**
-  * @brief  Check and set RDP to Level 0 if needed
-  * @note   WARNING: Downgrading from Level 1 to Level 0 will erase all Flash!
-  * @retval None
-  */
-void check_and_set_rdp_level0(void)
-{
-  FLASH_OBProgramInitTypeDef OBInit;
-  
-  // Get current Option Bytes configuration
-  HAL_FLASHEx_OBGetConfig(&OBInit);
-  
-  // Check if RDP is already Level 0
-  if (OBInit.RDPLevel == OB_RDP_LEVEL_0)
-  {
-    // Already at Level 0, nothing to do
-    return;
-  }
-  
-  // RDP is not Level 0, need to set it
-  // WARNING: This will trigger a Flash erase if coming from Level 1!
-  
-  // Unlock the Flash Option Bytes
-  HAL_FLASH_Unlock();
-  HAL_FLASH_OB_Unlock();
-  
-  // Configure Option Bytes to set RDP Level 0
-  OBInit.OptionType = OPTIONBYTE_RDP;
-  OBInit.RDPLevel = OB_RDP_LEVEL_0;
-  
-  // Program the Option Bytes
-  if (HAL_FLASHEx_OBProgram(&OBInit) == HAL_OK)
-  {
-    // Launch the option byte loading (will trigger reset)
-    HAL_FLASH_OB_Launch();
-  }
-  
-  // Lock the Flash Option Bytes
-  HAL_FLASH_OB_Lock();
-  HAL_FLASH_Lock();
-}
-
 /* USER CODE END 0 */
 
 /**
@@ -137,9 +95,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  // Check and ensure RDP is set to Level 0
-  // WARNING: If currently at Level 1, this will erase all Flash!
-  check_and_set_rdp_level0();
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
